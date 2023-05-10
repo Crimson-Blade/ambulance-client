@@ -20,75 +20,74 @@ const StaffAuthForm = () => {
   };
 
   return (
-    <div className="p-8 max-w-sm m-auto bg-base-200 rounded shadow">
-      <div className="tabs">
-        <ul className="tab-group">
-          <li className={`tab ${activeTab === 'login' ? 'active' : ''}`} onClick={() => handleTabChange('login')}>
-            Login
-          </li>
-          <li className={`tab ${activeTab === 'register' ? 'active' : ''}`} onClick={() => handleTabChange('register')}>
-            Register
-          </li>
-        </ul>
-        <div className="tab-content">
-          <div className={`tab-pane ${activeTab === 'login' ? 'active' : ''}`}>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block font-bold">Phone Number:</label>
-                <input
-                  type="text"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="border rounded w-full px-3 py-2"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block font-bold">Password:</label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="border rounded w-full px-3 py-2"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Login
-              </button>
-            </form>
-          </div>
-          <div className={`tab-pane ${activeTab === 'register' ? 'active' : ''}`}>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block font-bold">Phone Number:</label>
-                <input
-                  type="text"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="border rounded w-full px-3 py-2"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block font-bold">Password:</label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="border rounded w-full px-3 py-2"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                Register
-              </button>
-            </form>
-          </div>
-        </div>
+    <div className="p-8 max-w-sm m-auto bg-transparent ">
+      <div className="tabs w-full ">
+        <a className={`tab tab-lifted lab-lg ${activeTab === 'login' ? 'tab-active [--tab-bg:hsl(var(--b2))]' : '[--tab-border-color:transparent]'}`} onClick={() => handleTabChange('login')}>
+          Login
+        </a>
+        <a className={`tab tab-lifted lab-lg ${activeTab === 'register' ? 'tab-active [--tab-bg:hsl(var(--b2))]' : '[--tab-border-color:transparent]'}`} onClick={() => handleTabChange('register')}>
+          Register
+        </a>
       </div>
+      <div className={`tab-content px-12 py-4 rounded-lg ${activeTab === 'login' ? 'rounded-tl-none':''} bg-base-200`}>
+        {activeTab === 'login' && (
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block font-bold">Phone Number:</label>
+              <input
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="input input-bordered w-full px-3 py-2"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold">Password:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input input-bordered w-full px-3 py-2"
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-primary text-white font-bold py-2 px-4 rounded"
+            >
+              Login
+            </button>
+          </form>
+        )}
+        {activeTab === 'register' && (
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="block font-bold">Phone Number:</label>
+              <input
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="input input-bordered w-full px-3 py-2"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-bold">Password:</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input input-bordered w-full px-3 py-2"
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-primary text-white font-bold py-2 px-4 rounded"
+            >
+              Register
+            </button>
+          </form>
+        )}
+      </div>
+
     </div>
   );
 };
